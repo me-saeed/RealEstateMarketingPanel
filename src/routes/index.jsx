@@ -12,6 +12,8 @@ import Navbarreal from "@/pages/Dashboard/Navbarreal";
 import Sidebar from "@/pages/Sidebardash/Sidebar";
 import Chat from "@/pages/Dashboard/Chat";
 import Phonenumbers from "@/pages/Dashboard/Phonenumbers";
+import Chatscreen from "@/components/Chatscreen";
+import Display from "@/components/Display";
 
 function Root() {
   return (
@@ -26,6 +28,14 @@ function Root() {
         <Route path='/Sidebar' element={<Sidebar />} />
         <Route path='/Chat' element={<Chat />} />
         <Route path='/Phonenumbers' element={<Phonenumbers />} />
+        <Route path='/' element={<LandingPage />} />
+
+        <Route path='/Chatscreen' element={<Chatscreen />} />
+
+        <Route path='/Display' element={<Display />} />
+
+        <Route path='auth/*' element={<Auth />} />
+        <Route path='admin/*' element={<Admin />} />
       </Routes>
     </Router>
   );
