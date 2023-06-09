@@ -14,28 +14,31 @@ import Chat from "@/pages/Dashboard/Chat";
 import Phonenumbers from "@/pages/Dashboard/Phonenumbers";
 import Chatscreen from "@/components/Chatscreen";
 import Display from "@/components/Display";
+import NumbersTable from "@/components/NumbersTable";
+import BuyNumber from "@/components/BuyNumber";
 
 function Root() {
   return (
     <Router history={history}>
       <Routes>
-        <Route path='/*' element={<LandingPage />} />
-        <Route path='auth/*' element={<Auth />} />
-        <Route path='admin/*' element={<Admin />} />
-        <Route path='/Dashboard' element={<Dashboard />} />
-        <Route path='/Compaign' element={<Compaign />} />
-        <Route path='/Navbar' element={<Navbarreal />} />
-        <Route path='/Sidebar' element={<Sidebar />} />
-        <Route path='/Chat' element={<Chat />} />
-        <Route path='/Phonenumbers' element={<Phonenumbers />} />
-        <Route path='/' element={<LandingPage />} />
+        <Route path="/*" element={<LandingPage />} />
+        <Route path="auth/*" element={<Auth />} />
+        <Route path="admin/*" element={<Admin />} />
+        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/Compaign" element={<Compaign />} />
+        <Route path="/Navbar" element={<Navbarreal />} />
+        <Route path="/Sidebar" element={<Sidebar />} />
+        <Route path="/Chat" element={<Chat />} />
+        <Route path="/Phonenumbers" element={<Phonenumbers />} />
 
-        <Route path='/Chatscreen' element={<Chatscreen />} />
+        <Route path="/Chatscreen" element={<Chatscreen />} />
 
-        <Route path='/Display' element={<Display />} />
+        <Route path="/Display" element={<Display />} />
+        <Route path="/NumbersTable" element={<NumbersTable />} />
+        <Route path="/BuyNumber" element={<BuyNumber />} />
 
-        <Route path='auth/*' element={<Auth />} />
-        <Route path='admin/*' element={<Admin />} />
+        <Route path="auth/*" element={<Auth />} />
+        <Route path="admin/*" element={<Admin />} />
       </Routes>
     </Router>
   );

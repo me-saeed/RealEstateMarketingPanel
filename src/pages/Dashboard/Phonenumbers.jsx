@@ -76,81 +76,81 @@ function Phonenumbers() {
   return (
     <>
       <Sidebar />
-      <div className='relative   md:ml-64 md:-mt-24'>
+      <div className="relative   md:ml-64 md:-mt-24">
         <Navbarreal />
       </div>
 
-      <Container maxWidth='lg'>
+      <Container maxWidth="lg">
         <form onSubmit={formik.handleSubmit}>
-          <div className='relative md:ml-64  md:mt-32  lg:mt-48'>
-            <div className=''>
-              <h1 className='block uppercase text-blueGray-600 text-lg flex justify-center font-bold mt-10'>
+          <div className="relative md:ml-64  md:mt-32  lg:mt-48">
+            <div className="">
+              <h1 className="block uppercase text-blueGray-600 text-lg flex justify-center font-bold mt-10">
                 {" "}
                 Contact/Phone Number
               </h1>
             </div>
-            <div className='relative w-full mt-10'>
+            <div className="relative w-full mt-10">
               <label
-                className='block uppercase text-blueGray-600 text-xs font-bold '
-                htmlFor='firstName'
+                className="block uppercase text-blueGray-600 text-xs font-bold "
+                htmlFor="firstName"
               >
                 First Name
               </label>
               <input
-                id='firstName'
-                name='firstName'
-                type='text'
-                className='input-styl'
-                placeholder='First Name'
+                id="firstName"
+                name="firstName"
+                type="text"
+                className="input-styl"
+                placeholder="First Name"
                 value={formik.values.firstName}
                 onChange={handleInputChange}
               />
               <label
-                className='block uppercase text-blueGray-600 text-xs mt-6 font-bold '
-                htmlFor='firstName'
+                className="block uppercase text-blueGray-600 text-xs mt-6 font-bold "
+                htmlFor="firstName"
               >
                 Last Name
               </label>
               <input
-                id='lastName'
-                name='lastName'
-                type='text'
-                className='input-styl '
-                placeholder='Last Name'
+                id="lastName"
+                name="lastName"
+                type="text"
+                className="input-styl "
+                placeholder="Last Name"
                 value={formik.values.lastName}
                 onChange={handleInputChange}
               />
               <label
-                className='block uppercase text-blueGray-600 text-xs font-bold mt-6'
-                htmlFor='firstName'
+                className="block uppercase text-blueGray-600 text-xs font-bold mt-6"
+                htmlFor="firstName"
               >
                 Phone Number
               </label>
               <input
-                id='phoneNumber'
-                name='phoneNumber'
-                type='number'
-                className='input-styl '
-                placeholder='Add Phone Number'
+                id="phoneNumber"
+                name="phoneNumber"
+                type="number"
+                className="input-styl "
+                placeholder="Add Phone Number"
                 value={formik.values.phoneNumber}
                 onChange={handleInputChange}
               />
             </div>
-            <div className='flex justify-center'>
+            <div className="flex justify-center">
               <button
-                className='border-2 bg-green-500 text-white p-4 rounded-lg flex justify-center mt-10'
+                className="border-2 bg-green-500 text-white p-4 rounded-lg flex justify-center mt-10"
                 onClick={handleAddContact}
-                type='button'
+                type="button"
               >
                 Add Phone Number
               </button>
               <div>
                 <FileReaderInput
-                  as='text'
-                  id='fileInput'
+                  as="text"
+                  id="fileInput"
                   onChange={handleFileUpload}
                 >
-                  <button className='border-2 bg-green-500 text-white p-4 rounded-lg flex justify-center mt-10'>
+                  <button className="border-2 bg-green-500 text-white p-4 rounded-lg flex justify-center mt-10">
                     Upload File
                   </button>
                 </FileReaderInput>
@@ -158,7 +158,7 @@ function Phonenumbers() {
             </div>
 
             {/* <div className='flex justify-center'></div> */}
-            <table className='mt-10'>
+            {/* <table className='mt-10'>
               <thead>
                 <tr className=''>
                   <th className='ysfdiasyfdifi'>First Name</th>
@@ -175,11 +175,36 @@ function Phonenumbers() {
                   </tr>
                 ))}
               </tbody>
+            </table> */}
+
+            <table className="mt-10 w-full border-collapse">
+              <thead>
+                <tr className="bg-gray-200">
+                  <th className="py-2 px-4 border-b">First Name</th>
+                  <th className="py-2 px-4 border-b">Last Name</th>
+                  <th className="py-2 px-4 border-b">Phone Number</th>
+                </tr>
+              </thead>
+              <tbody>
+                {contacts.map((contact, index) => (
+                  <tr
+                    key={index}
+                    className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}
+                  >
+                    <td className="py-2 px-4 border-b">{contact.firstName}</td>
+                    <td className="py-2 px-4 border-b">{contact.lastName}</td>
+                    <td className="py-2 px-4 border-b">
+                      {contact.phoneNumber}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
             </table>
-            <div className='flex justify-center'>
+
+            <div className="flex justify-center">
               <button
-                className='border-2 bg-green-500 text-white p-4 rounded-lg flex justify-center mt-10'
-                type='submit'
+                className="border-2 bg-green-500 text-white p-4 rounded-lg flex justify-center mt-10"
+                type="submit"
               >
                 Send
               </button>
