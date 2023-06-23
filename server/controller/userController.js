@@ -1,7 +1,7 @@
 const User = require("../models/user");
 
 const add_user = async (req, res) => {
-  console.log(req.body, "addinguser-------");
+//   console.log(req.body, "addinguser-------");
   const {
     accessCode,
     fname,
@@ -30,7 +30,7 @@ const add_user = async (req, res) => {
     cellphone: cellphone,
     zip: zip,
   });
-console.log(user,'data in user')
+// console.log(user,'data in user')
 try {
     const savedUser = await user.save();
     res.status(200).json({ user: savedUser }); // 'Json' should be changed to 'json'
@@ -39,6 +39,33 @@ try {
   }
 };
 
+
+const loginUser = async (req, res) => {
+    try {
+      const { email, accessCode } = req.body;
+      console.log(accessCode,'login pass---')
+  
+      // Check if user with given email exists
+      const user = await User.findOne({ email });
+      console.log(user, "value of user-------");
+  
+      if (!user) {
+        return res.status(400).json({ message: "User not found" });
+      }
+      console.log(user.accessCode, "accesscode-----");
+      // Validate password
+      if (accessCode!=user.accessCode) {
+        return res.status(400).json({ message: "Invalid accessCode" });
+      }
+      // User exists and password is valid
+  
+      return res.status(200).json({ status: true, data: "Login successfully" });
+    } catch (error) {
+      return res.status(400).json({ message: "something Went Wrong" });
+    }
+  };
+
 module.exports = {
   add_user,
+  loginUser
 };
